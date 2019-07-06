@@ -30,15 +30,30 @@
         // );
         
         // react
-        function Component(props) {
-            console.log(props.message);
-            return (
-                <>                    
-                    <h1 className="title">{props.children}</h1>
-                    <div style={{ color: 'red' }}>{true ? <p>하이 {props.message}</p> : <p>아니</p>}</div>
-                    <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
-                </>
-            );
+        // function Component(props) {
+        //     console.log(props.message);
+        //     return (
+        //         <>                    
+        //             <h1 className="title">{props.children}</h1>
+        //             <div style={{ color: 'red' }}>{true ? <p>하이 {props.message}</p> : <p>아니</p>}</div>
+        //             <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
+        //         </>
+        //     );
+        // }
+
+        class Component extends React.Component {
+            render() {
+
+                const {children, message} = this.props;
+
+                return (
+                    <>                    
+                        <h1 className="title">{children}</h1>
+                        <div style={{ color: 'red' }}>{true ? <p>하이 {message}</p> : <p>아니</p>}</div>
+                        <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
+                    </>
+                );
+            }
         }
 
         // react-dom
