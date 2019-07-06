@@ -45,10 +45,18 @@
             static defaultProps = {
                 test: "테스트!!",
             }
-            
-            state = {
-                count: 0,
-            };
+
+            constuctor(props) {
+                super(props);
+
+                this.state = {
+                    count: 0,
+                };
+            }
+
+            // state = {
+            //     count: 0,
+            // };
 
             render() {
 
