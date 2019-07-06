@@ -42,14 +42,21 @@
         // }
 
         class Component extends React.Component {
+            state = {
+                count: 0,
+            };
+
             render() {
 
                 const {children, message} = this.props;
+                const {count} = this.state;
 
                 return (
                     <>                    
                         <h1 className="title">{children}</h1>
-                        <div style={{ color: 'red' }}>{true ? <p>하이 {message}</p> : <p>아니</p>}</div>
+                        <p>{message}</p>
+                        <p>{count}</p>
+                        <div style={{ color: 'red' }}>{true ? <p>하이</p> : <p>아니</p>}</div>
                         <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
                     </>
                 );
