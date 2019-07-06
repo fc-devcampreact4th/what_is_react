@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .title {
+            font-size: 40px;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,13 +17,33 @@
     
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script>
-        function Component() {
-            return React.createElement('p', null, null);
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // Not Use Babel, JSX
+        // function Component() {
+        //     return React.createElement('p', null, '안녕하세요');
+        // }
+
+        // ReactDOM.render(
+        //     React.createElement(Component, null, null), 
+        //     document.querySelector('#root')
+        // );
+        
+        // react
+        function Component(props) {
+            console.log(props.message);
+            return (
+                <>                    
+                    <h1 className="title">{props.children}</h1>
+                    <div style={{ color: 'red' }}>{true ? <p>하이 {props.message}</p> : <p>아니</p>}</div>
+                    <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
+                </>
+            );
         }
 
+        // react-dom
         ReactDOM.render(
-            React.createElement(Component, null, null), 
+            <Component message="메시지">자식이다</Component>, 
             document.querySelector('#root')
         );
     </script>
