@@ -43,6 +43,10 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+    if (checkWinner(squares) || squares[i]) {
+      alert('이미 체크되었습니다.');
+      return;
+    }
     squares[i] = this.state.xIsNext? 'X' : 'O';
     this.setState({
       squares: squares,
