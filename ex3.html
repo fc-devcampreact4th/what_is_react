@@ -41,12 +41,16 @@
         //     );
         // }
 
+        function Count(props) {
+            return <p>{props.num}</p>;
+        }
+
         class Component extends React.Component {
             static defaultProps = {
                 test: "테스트!!",
             }
 
-            constuctor(props) {
+            constructor(props) {
                 super(props);
 
                 this.state = {
@@ -64,10 +68,14 @@
                 const {count} = this.state;
 
                 return (
-                    <>                    
+                    <>
+                        <button onClick={(event) => {
+                            this.setState({count: count +1});
+                        }}>카운트 업</button>
                         <h1 className="title">{children}</h1>
                         <p>{message}</p>
                         <p>{count}</p>
+                        <Count num={count} />
                         <div style={{ color: 'red' }}>{true ? <p>하이</p> : <p>아니</p>}</div>
                         <div style={{ backgroundColor: 'blue' }}>{true && <p>하이</p>}</div>
                     </>
