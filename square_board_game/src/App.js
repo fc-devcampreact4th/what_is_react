@@ -43,7 +43,11 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    if (checkWinner(squares) || squares[i]) {
+    if (checkWinner(squares)) {
+      alert('게임이 이미 종료 되었습니다.');
+      return;
+    }
+    if (squares[i]) {
       alert('이미 체크되었습니다.');
       return;
     }
